@@ -4,3 +4,4 @@ appsettings.json
 *.db
 .vscode
 appsettings.json
+wwwroot
