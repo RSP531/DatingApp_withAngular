@@ -78,7 +78,6 @@ namespace DatingApp.API
                   context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
                   var error = context.Features.Get<IExceptionHandlerFeature>();
-
                   if(error != null)
                   {
                     context.Response.AddApplicationError(error.Error.Message);
