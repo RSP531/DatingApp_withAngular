@@ -19,15 +19,18 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.registerForm = new FormGroup({
-      username: new FormControl('Hello', Validators.required),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(8)
-      ]),
-      confirmPassword: new FormControl('', Validators.required)
-    });
+    this.registerForm = new FormGroup(
+      {
+        username: new FormControl('Hello', Validators.required),
+        password: new FormControl('', [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(8)
+        ]),
+        confirmPassword: new FormControl('', Validators.required)
+      },
+      this.passwordMatchValidator
+    );
   }
 
   register() {
@@ -41,6 +44,13 @@ export class RegisterComponent implements OnInit {
     // );
     console.log(this.registerForm.value);
   }
+
+  passwordMatchValidator(g: FormGroup) {
+    return g.get('password').value === g.get('confirmPassword').value
+      ? null
+      : { mismatch: true };
+  }
+
   cancel() {
     this.cancelRegister.emit(false);
   }
