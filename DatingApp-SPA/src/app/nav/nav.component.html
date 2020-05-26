@@ -15,6 +15,14 @@
     </ul>
 
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
+      <!-- <span class="mr-1 h-25">
+        <img
+          src="{{
+            'https://www.programmableweb.com/sites/default/files/styles/article_profile_150x150/public/Dog%20CEO%20Dog.png?itok=1lD8Tw8c'
+          }}"
+          alt=""
+        />
+      </span> -->
       <a class="dropdown-toggle text-light" dropdownToggle>
         Welcome {{ authService.decodedToken?.unique_name | titlecase }}
       </a>

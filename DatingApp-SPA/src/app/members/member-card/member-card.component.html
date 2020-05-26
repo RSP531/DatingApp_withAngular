@@ -2,7 +2,10 @@
   <div class="card-img-wrapper">
     <img
       class="card-img-top"
-      src="{{ user.photoUrl }}"
+      src="{{
+        user.photoUrl ||
+          'https://www.programmableweb.com/sites/default/files/styles/article_profile_150x150/public/Dog%20CEO%20Dog.png?itok=1lD8Tw8c'
+      }}"
       alt="{{ user.knownAs }}"
     />
     <ul class="list-inline member-icons animate text-center">
